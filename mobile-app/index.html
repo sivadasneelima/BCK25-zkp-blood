@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noir Location Proof Demo</title>
+  <link rel="stylesheet" href="/src/index.css">
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white">
+  <script type="module" src="/index.js"></script>
+  
+  <div class="container mx-auto px-4 py-8 max-w-7xl">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        🔐 Noir Location Proof
+      </h1>
+      <p class="text-slate-300 text-lg">Zero-Knowledge Proof for Location Verification</p>
+    </div>
+
+    <!-- Input Card -->
+    <div class="bg-slate-800/50 backdrop-blur-lg rounded-2xl shadow-2xl p-8 mb-8 border border-slate-700">
+      <div class="mb-6">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">🏥</span>
+          <h2 class="text-2xl font-semibold text-purple-300">Hospital Reference Location</h2>
+        </div>
+        <div class="bg-purple-900/30 rounded-lg p-4 border border-purple-700/50">
+          <p class="text-purple-200 font-mono">
+            <span class="text-purple-400">lat_ref:</span> 1000 &nbsp;|&nbsp; 
+            <span class="text-purple-400">lon_ref:</span> 2000
+          </p>
+          <p class="text-sm text-slate-400 mt-2">These coordinates are public and hardcoded</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-6">
+        <div>
+          <label for="lat_donor" class="block text-sm font-medium text-slate-300 mb-2">
+            📍 Your Latitude
+          </label>
+          <input 
+            id="lat_donor" 
+            type="number" 
+            placeholder="e.g. 1002"
+            class="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-slate-500"
+          />
+        </div>
+        
+        <div>
+          <label for="lon_donor" class="block text-sm font-medium text-slate-300 mb-2">
+            📍 Your Longitude
+          </label>
+          <input 
+            id="lon_donor" 
+            type="number" 
+            placeholder="e.g. 2003"
+            class="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-slate-500"
+          />
+        </div>
+        
+        <div>
+          <label for="radius" class="block text-sm font-medium text-slate-300 mb-2">
+            📏 Radius (grid units)
+          </label>
+          <input 
+            id="radius" 
+            type="number" 
+            placeholder="e.g. 10"
+            class="w-full px-4 py-3 bg-slate-900/50 border border-slate-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all text-white placeholder-slate-500"
+          />
+        </div>
+      </div>
+
+      <button 
+        id="submit"
+        class="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-lg font-semibold text-lg shadow-lg hover:shadow-purple-500/50 transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98]"
+      >
+        🔒 Generate Zero-Knowledge Proof
+      </button>
+    </div>
+
+    <!-- Results Grid -->
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Logs Panel -->
+      <div class="bg-slate-800/50 backdrop-blur-lg rounded-2xl shadow-2xl border border-slate-700 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-4">
+          <h2 class="text-2xl font-semibold flex items-center gap-2">
+            📋 Execution Logs
+          </h2>
+        </div>
+        <div id="logs" class="p-6 max-h-[600px] overflow-y-auto font-mono text-sm text-slate-200 space-y-1">
+          <p class="text-slate-400 italic">Logs will appear here...</p>
+        </div>
+      </div>
+
+      <!-- Proof Panel -->
+      <div class="bg-slate-800/50 backdrop-blur-lg rounded-2xl shadow-2xl border border-slate-700 overflow-hidden">
+        <div class="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-4">
+          <h2 class="text-2xl font-semibold flex items-center gap-2">
+            ✅ Proof Output
+          </h2>
+        </div>
+        <div id="results" class="p-6 max-h-[600px] overflow-y-auto font-mono text-sm text-slate-200 space-y-1">
+          <p class="text-slate-400 italic">Proof data will appear here...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Info -->
+    <div class="mt-8 text-center text-slate-400 text-sm">
+      <p>Powered by Noir ZK Circuits • UltraHonk Backend • bb.js</p>
+    </div>
+  </div>
+</body>
+</html>
